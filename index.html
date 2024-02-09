@@ -15,7 +15,7 @@
   <body>
     <main class="container">
       <img class="cat-img" src="img/cat-0.jpg" alt="Picture of a cat" />
-      <p class="title">Will you be my Valentine?</p>
+      <p class="title">Wil je mijn valentijn zijn???</p>
       <div class="buttons">
         <button type="button" class="btn btn--yes">Yes</button>
         <button type="button" class="btn btn--no">No</button>
@@ -51,7 +51,8 @@
       });
 
       function handleYesClick() {
-        titleElement.innerHTML = "Yayyy!! :3";
+        titleElement.innerHTML =
+          "Seni cok seviyorum hayatim, ve bu gunu seninle gecirmek icin sabirsizlikla bekliyorum!";
         buttonsContainer.classList.add("hidden");
         changeImage("yes");
       }
@@ -68,12 +69,12 @@
 
       function generateMessage(noCount) {
         const messages = [
-          "No",
-          "Are you sure?",
-          "Pookie please",
-          "Don't do this to me :(",
-          "You're breaking my heart",
-          "I'm gonna cry...",
+          "Nee mi?",
+          "Ben je zeker?",
+          "Askim gedraag je svp",
+          "Kafayi mi yedin????",
+          "Uzuyorsun beni bak",
+          "Druk nog 1x en ik sta voor je deur!",
         ];
 
         const messageIndex = Math.min(noCount, messages.length - 1);
@@ -81,7 +82,7 @@
       }
 
       function changeImage(image) {
-        catImg.src = `img/cat-${image}.jpg`;
+        catImg.src = `img/cat-${image}.jpeg`;
       }
 
       function updateNoButtonText() {
