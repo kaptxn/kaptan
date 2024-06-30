@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 06/07 </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bday">
+    <div class="container">
+        <h1 class="title" style="font-style: italic; font-family: Protest Riot, sans-serif;"> En değerli gün için</h1>
+        <div id="countdown"></div>
+        <p>Benimle bu günü kutlamaya hazır mısın?</p>
+        <div>
+            <button onclick="celebrate('Evet')">Evet</button>
+            <button onclick="celebrate('Hayır')">Hayır</button>
+            <div id="preparationInfo" style="display: none;">
+                
+                <div style="border: 1px solid #ccc; padding: 10px; margin-top: 10px; font-weight: bold;">
+                    <p>Date: 06/07/24</p>
+                    <p>Time: 11h00</p>
+                    <p>Note: Günün güzelliği seninle daha da özel olacak, bu yüzden kendini şımart ve hazır ol hayatim! </p>
+                </div>
+            </div>
+            <p></p>
+            <div id="mapContainer" style="display: none;">
+                <iframe id="googleMap" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+       
+    </div>
+
+
+
+    <script>
+         function calculateCountdown() {
+            const birthday = new Date('2024-07-06T00:00:00');
+            const now = new Date();
+            const timeDiff = birthday - now;
+
+            if (timeDiff > 0) {
+                const days = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Math.ceil ile yukarı yuvarlayarak günleri hesapla
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = 
+                    `<h2>${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Saniye kaldı</h2>`;
+            } else {
+                clearInterval(timerInterval);
+                document.getElementById('countdown').innerHTML = "<h2>Doğum günün kutlu olsun!</h2>";
+                document.querySelector('p').style.display = 'none'; // Cümleyi gizle
+                document.querySelector('div').style.display = 'none'; // Düğmeleri gizle
+            }
+        }
+
+        function celebrate(answer) {
+            if (answer === 'Evet') {
+                const googleMapFrame = document.getElementById('googleMap');
+                googleMapFrame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2510.861758621131!2d4.5129768924829925!3d51.00022667467153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3e6af76970227%3A0x1e2d70317b3259e1!2sZOO%20Planckendael!5e0!3m2!1snl!2sbe!4v1719776214624!5m2!1snl!2sbe";
+                
+                const mapContainer = document.getElementById('mapContainer');
+                mapContainer.style.display = 'block';
+
+                const preparationInfo = document.getElementById('preparationInfo');
+                preparationInfo.style.display = 'block';
+            } else {
+                alert('Grapjas uhuhuhuhuhu');
+            }
+        }
+
+        const timerInterval = setInterval(calculateCountdown, 1000);
+    </script>
+</body>
+</html>

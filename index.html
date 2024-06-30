@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Berra'm icin</title>
+    <title>For the love of my life</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,81 +13,48 @@
     />
   </head>
   <body>
-    <main class="container">
-      <img class="cat-img" src="img/cat-0.jpeg" alt="Picture of a cat" />
-      <p class="title">Wil je mijn valentijn zijn???</p>
-      <div class="buttons">
-        <button type="button" class="btn btn--yes">Ja</button>
-        <button type="button" class="btn btn--no">Nee</button>
-      </div>
-    </main>
+    
+      <div class="container">
+        <h1>Sevgili Berra'm,</h1>
+        <div id="messageContainer">
+            <p class="message" style="display:none;">Seni üzdüğüm için gerçekten çok üzgünüm.</p>
+            <p class="message" style="display:none;">Hatalarımı telafi etmek ve seni tekrar mutlu görmek istiyorum.</p>
+            <p class="message" style="display:none;">Lütfen beni affet.</p>
+        </div>
+        <button onclick="displayMessages()">Mesajımı Oku</button>
+        <div id="finalMessage" style="display:none;">
+            <p>Seni çok seviyorum hayatim. Her şey için tekrar özür dilerim.</p>
+            <div id="qrCodeContainer">
+                <p>❤️</p>
+                <img src="./img/frame.png" alt="Spotify Playlist QR">
+            </div>
+            <button onclick="goToBirthdayPage()">Next &rarr;</button>
+        </div>
+    </div>
+
+    
+
+  
     <script>
-      "use strict";
+       function displayMessages() {
+        const messages = document.querySelectorAll('.message');
+        let delay = 0;
 
-      const titleElement = document.querySelector(".title");
-      const buttonsContainer = document.querySelector(".buttons");
-      const yesButton = document.querySelector(".btn--yes");
-      const noButton = document.querySelector(".btn--no");
-      const catImg = document.querySelector(".cat-img");
+        messages.forEach((message, index) => {
+            setTimeout(() => {
+                message.style.display = 'block';
+            }, delay);
+            delay += 2000; // Her cümle 2 saniye arayla gözüksün
+        });
 
-      const MAX_IMAGES = 5;
+        setTimeout(() => {
+            document.getElementById('finalMessage').style.display = 'block';
+        }, delay);
+    }
 
-      let play = true;
-      let noCount = 0;
-
-      yesButton.addEventListener("click", handleYesClick);
-
-      noButton.addEventListener("click", function () {
-        if (play) {
-          noCount++;
-          const imageIndex = Math.min(noCount, MAX_IMAGES);
-          changeImage(imageIndex);
-          resizeYesButton();
-          updateNoButtonText();
-          if (noCount === MAX_IMAGES) {
-            play = false;
-          }
+    function goToBirthdayPage() {
+            window.location.href = 'birthday.html';
         }
-      });
-
-      function handleYesClick() {
-        titleElement.innerHTML =
-          "Seni cok seviyorum hayatim, ve bu gunu seninle gecirmek icin sabirsizlikla bekliyorum!";
-        buttonsContainer.classList.add("hidden");
-        changeImage("yes");
-      }
-
-      function resizeYesButton() {
-        const computedStyle = window.getComputedStyle(yesButton);
-        const fontSize = parseFloat(
-          computedStyle.getPropertyValue("font-size")
-        );
-        const newFontSize = fontSize * 1.6;
-
-        yesButton.style.fontSize = `${newFontSize}px`;
-      }
-
-      function generateMessage(noCount) {
-        const messages = [
-          "Nee mi?",
-          "Ben je zeker?",
-          "Askim gedraag je svp",
-          "Kafayi mi yedin????",
-          "Uzuyorsun beni bak",
-          "Druk nog 1x en ik sta voor je deur!",
-        ];
-
-        const messageIndex = Math.min(noCount, messages.length - 1);
-        return messages[messageIndex];
-      }
-
-      function changeImage(image) {
-        catImg.src = `img/cat-${image}.jpeg`;
-      }
-
-      function updateNoButtonText() {
-        noButton.innerHTML = generateMessage(noCount);
-      }
-    </script>
+     </script>
   </body>
 </html>
