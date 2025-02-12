@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-style: italic;">Hayatimin aşkini bulali bu kadar olmus.. ❤️</h1>
+           <!-- Slideshow container -->
+           
+        <div id="timer">
+            <div class="time-unit" id="days">
+                <div class="flapper"></div>
+                <span>Dagen</span>
+            </div>
+            <div class="time-unit" id="hours">
+                <div class="flapper"></div>
+                <span>Uren</span>
+            </div>
+            <div class="time-unit" id="minutes">
+                <div class="flapper"></div>
+                <span>Minuten</span>
+            </div>
+            <div class="time-unit" id="seconds">
+                <div class="flapper"></div>
+                <span>Seconden</span>
+            </div>
+        </div>
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <img src="./img/cat-0.jpeg" alt="Photo 1">
+                <img src="./img/IMG1.JPG" alt="Photo 1">
+                <img src="./img/cat-1.jpeg" alt="Photo 2">
+                <img src="./img/IMG2.PNG" alt="Photo 1">
+                <img src="./img/cat-2.jpeg" alt="Photo 3">
+                <img src="./img/IMG3.PNG" alt="Photo 1">
+                <img src="./img/cat-3.jpeg" alt="Photo 4">
+                <img src="./img/IMG4.jpg" alt="Photo 1">
+                <img src="./img/cat-4.jpeg" alt="Photo 5">
+                <img src="./img/IMG5.jpg" alt="Photo 1">
+                <img src="./img/cat-5.jpeg" alt="Photo 6">
+                <img src="./img/IMG6.jpg" alt="Photo 1">
+                <img src="./img/cat-yes.jpeg" alt="Photo 7">
+            
+
+                <img src="./img/cat-0.jpeg" alt="Photo 1">
+                <img src="./img/IMG1.JPG" alt="Photo 1">
+                <img src="./img/cat-1.jpeg" alt="Photo 2">
+                <img src="./img/IMG2.PNG" alt="Photo 1">
+                <img src="./img/cat-2.jpeg" alt="Photo 3">
+                <img src="./img/IMG3.PNG" alt="Photo 1">
+                <img src="./img/cat-3.jpeg" alt="Photo 4">
+                <img src="./img/IMG4.jpg" alt="Photo 1">
+                <img src="./img/cat-4.jpeg" alt="Photo 5">
+                <img src="./img/IMG5.jpg" alt="Photo 1">
+                <img src="./img/cat-5.jpeg" alt="Photo 6">
+                <img src="./img/IMG6.jpg" alt="Photo 1">
+                <img src="./img/cat-yes.jpeg" alt="Photo 7">
+                <!-- Voeg hier meer afbeeldingen toe -->
+            </div>
+        </div>
+        <button id="littleSurpriseBtn" onclick="openStarMap()">Little Surprise</button>
+        <div id="starOverlay" class="overlay">
+            <div id="starMap">
+                <button id="closeBtn" onclick="closeStarMap()">X</button>
+                <img src="./img/starmap (4).png" alt="Star Map" />
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function updateTimer() {
+            const startDate = new Date("2023-02-17T00:00:00");
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").getElementsByClassName("flapper")[0].innerText = days;
+            document.getElementById("hours").getElementsByClassName("flapper")[0].innerText = hours;
+            document.getElementById("minutes").getElementsByClassName("flapper")[0].innerText = minutes;
+            document.getElementById("seconds").getElementsByClassName("flapper")[0].innerText = seconds;
+        }
+        
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+       
+        function openStarMap() {
+    document.getElementById("starOverlay").style.display = "flex";  // Overlay tonen
+}
+
+function closeStarMap() {
+    document.getElementById("starOverlay").style.display = "none"; // Overlay verbergen
+}
+    </script>
+</body>
+</html>

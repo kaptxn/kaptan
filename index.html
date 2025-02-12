@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For the love of my life</title>
+    <title>Valentijn</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,48 +13,104 @@
     />
   </head>
   <body>
-    
-      <div class="container">
-        <h1>Sevgili Berra'm,</h1>
-        <div id="messageContainer">
-            <p class="message" style="display:none;">Seni üzdüğüm için gerçekten çok üzgünüm.</p>
-            <p class="message" style="display:none;">Hatalarımı telafi etmek ve seni tekrar mutlu görmek istiyorum.</p>
-            <p class="message" style="display:none;">Lütfen beni affet.</p>
-        </div>
-        <button onclick="displayMessages()">Mesajımı Oku</button>
-        <div id="finalMessage" style="display:none;">
-            <p>Seni çok seviyorum hayatim. Her şey için tekrar özür dilerim.</p>
-            <div id="qrCodeContainer">
-                <p>❤️</p>
-                <img src="./img/frame.png" alt="Spotify Playlist QR">
-            </div>
-            <button onclick="goToBirthdayPage()">Next &rarr;</button>
+    <div id="passwordScreen" class="container">
+        <h2>Enter code  </h2>
+        <input type="text" id="password" readonly />
+        <div class="keypad">
+            <button onclick="addNumber(1)">1</button>
+            <button onclick="addNumber(2)">2</button>
+            <button onclick="addNumber(3)">3</button><br>
+            <button onclick="addNumber(4)">4</button>
+            <button onclick="addNumber(5)">5</button>
+            <button onclick="addNumber(6)">6</button><br>
+            <button onclick="addNumber(7)">7</button>
+            <button onclick="addNumber(8)">8</button>
+            <button onclick="addNumber(9)">9</button><br>
+            <button onclick="clearPassword()">C</button>
+            <button onclick="addNumber(0)">0</button>
+            <button onclick="checkPassword()">OK</button>
         </div>
     </div>
-
     
+    <div id="valentijnScreen" class="container">
+        <h1>2. Yılımızı ve Sevgililer Günü'nü birlikte kutlamaya hazır mısın hayatim? </h1>
+        <video id="valentijnVideo" autoplay muted playsinline>
+            <source src="./videos/ssstik.io_1739357447259.mp4" type="video/mp4">
+            Je browser ondersteunt deze video niet.
+        </video>
+        <div class="choiceButtons">
+            <button onclick="showYesScreen()">Evet ❤️</button>
+            <button onclick="showNoAlert()">Hayir 😢</button>
+        </div>
+    </div>
+    <div id="yesScreen" class="container">
+        <h1>Seni cok seviyorum! ❤️ Ik kan niet wachten om op date te gaan met jou!</h1>
+        <p>Onze date:</p>
+        <p>Umami - Restaurant</p>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4998.933980197707!2d4.38646847686496!3d51.210472432351146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f692c370cfe3%3A0x739fd433ff43485c!2sUmami!5e0!3m2!1snl!2sbe!4v1739358290430!5m2!1snl!2sbe"  
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+        <br>
+        <button class="timerButton" onclick="window.location.href='timer.html'">Our story ❤️</button>
+        <button class="timerButton" onclick="showBrief()">Senin icin ❤️</button>
+    </div>
+    <div id="briefModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBrief()">&times;</span>
+            <h2>Sevgilim, </h2>
+            
+            <p>
 
-  
+                Bu iki yıl, hayatımın en güzel iki yılı oldu. Seninle geçirdiğim her anı çok değerli kıldın. Seninle her gülüş, her sohbet, her küçük an bile bana hayatın ne kadar güzel olduğunu hatırlatıyor. Beraber geçirdiğimiz zaman, benim için her şeyden daha kıymetli.
+                
+                Seninle olan her an, bir ömre bedel ve seninle yaşlanmayı hayal ediyorum. Gelecek yıllarda da seninle daha nice güzel anılar biriktirecek olmanın heyecanını ve sabırsızlığını hissediyorum. Her geçen gün, seni daha çok seviyorum ve seninle her şeyin daha güzel olacağına inanıyorum.
+                
+                Hayatımda olduğun için çok şanslıyım, seni her şeyden çok seviyorum.</p>
+               
+                <p>Iyiki varsin❤️</p>
+        </div>
+    </div>
     <script>
-       function displayMessages() {
-        const messages = document.querySelectorAll('.message');
-        let delay = 0;
-
-        messages.forEach((message, index) => {
-            setTimeout(() => {
-                message.style.display = 'block';
-            }, delay);
-            delay += 2000; // Her cümle 2 saniye arayla gözüksün
-        });
-
-        setTimeout(() => {
-            document.getElementById('finalMessage').style.display = 'block';
-        }, delay);
-    }
-
-    function goToBirthdayPage() {
-            window.location.href = 'birthday.html';
+         function addNumber(num) {
+            var passwordField = document.getElementById("password");
+            if (passwordField.value.length < 4) {
+                passwordField.value += num;
+            }
         }
-     </script>
+        
+        function clearPassword() {
+            document.getElementById("password").value = "";
+        }
+        
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "1702") {
+                document.getElementById("passwordScreen").style.display = "none";
+                document.getElementById("valentijnScreen").style.display = "block";
+                document.getElementById("valentijnVideo").play();
+            } else {
+                alert("Foute code, probeer opnieuw!");
+                clearPassword();
+            }
+        }
+        function showYesScreen() {
+            document.getElementById("valentijnScreen").style.display = "none";
+            document.getElementById("yesScreen").style.display = "block";
+        }
+        
+        function showNoAlert() {
+            alert("Cok komiksin aşkim, beni oraya yorma :DDDD");
+        }
+        function showBrief() {
+    document.getElementById("briefModal").style.display = "block";
+}
+
+// Functie om de brief modal te sluiten
+function closeBrief() {
+    document.getElementById("briefModal").style.display = "none";
+}
+    </script>
   </body>
 </html>

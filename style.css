@@ -10,12 +10,14 @@ html {
 
 body {
   background-color: #fff0f6;
+  background-image: url(./img/valentine.jpeg);
   font-family: "Protest Riot", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+
 }
 
 .container {
@@ -25,14 +27,14 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 600px;
-  margin-top: 14rem;
+  margin-top: 5rem;
 
 }
 
 h1 {
-  color: #ff6f61;
+  color: black;
   margin-bottom: 20px;
-  font-size: 25px;
+  font-size: 26px;
 }
 
 p {
@@ -54,23 +56,9 @@ button {
 }
 
 button:hover {
-  background-color: #ff3b2f;
+  background-color: black;
 }
 
-#qrCodeContainer {
-  margin-top: 20px;
-}
-
-#qrCodeContainer img {
-  width: 200px;
-  height: 200px;
-}
-
-#countdown {
-  font-family: "Protest Riot", sans-serif;
-  font-size: 24px;
-  color: #ff6f61;
-}
 
 .title {
   font-family: "Protest Riot", sans-serif;
@@ -86,4 +74,242 @@ button:hover {
 #mapContainer {
   margin-top: 20px;
   /* Harita konteynerini biraz yukarıya yerleştir */
+}
+
+#passwordScreen {
+  display: block;
+}
+
+#valentijnScreen,
+#yesScreen {
+  display: none;
+}
+
+.keypad button {
+  font-size: 20px;
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #ff6699;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.keypad button:hover {
+  background-color: black;
+}
+
+#password {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  border: none;
+  width: 100px;
+}
+
+h2 {
+  font-size: 5rem;
+}
+
+video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: none;
+}
+
+#timer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.time-unit {
+  background: linear-gradient(45deg, #ff9a8b, #ff6a88, #d76d77, #3a1c71);
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: auto;
+}
+
+.flapper {
+  color: white;
+  padding: 15px;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 8px;
+  width: auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: flap 1s ease-in-out infinite alternate;
+}
+
+@keyframes flap {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+span {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #fff;
+}
+
+
+.slideshow-container {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.slideshow {
+  display: flex;
+  animation: slide 50s infinite linear;
+  width: calc(100% * 26);
+  /* Aantal afbeeldingen in de slideshow */
+}
+
+.slideshow img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  max-height: 300px;
+  padding: 10px;
+  /* Zorg ervoor dat de afbeeldingen niet te groot worden */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* Verschuif 50% om door de eerste set naar de tweede te gaan */
+  }
+}
+
+/* brief*/
+.modal {
+  display: none;
+  /* Verbergen van de modal standaard */
+  position: fixed;
+  /* Blijft op dezelfde plek, zelfs bij scrollen */
+  z-index: 1;
+  /* Zorg ervoor dat de modal bovenaan staat */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Gedimde achtergrond */
+  overflow: auto;
+  /* Laat de inhoud scrollen als nodig */
+}
+
+/* Stijl voor de inhoud van de modal */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+/* Sluitknop stijl */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*surprise*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#starMap {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#starMap img {
+  max-width: 30%;
+  /* Verlaag de maximale breedte */
+  max-height: 30%;
+  /* Verlaag de maximale hoogte */
+  object-fit: cover;
+}
+
+/* Little surprise button styles */
+#littleSurpriseBtn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Protest Riot', sans-serif;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+#closeBtn:hover {
+  color: #ff4081;
+}
+
+#littleSurpriseBtn:hover {
+  background-color: #e5006b;
 }
